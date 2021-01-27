@@ -66,6 +66,125 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-MySQL" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/27/MySQL/" class="article-date">
+  <time datetime="2021-01-27T07:49:08.762Z" itemprop="datePublished">2021-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MySQL<br>(一）基本命令<br>|命令| 作用 |<br>|–|–|<br>|show  |展示数据库/表格 |<br>|select  |检索数据库/表格  格式：SELECT * FROM  表格名   |<br>|index/insert|插入|<br>|default|默认值|<br>delete  |删除  |<br>| create | 创建数据库/表格 |<br>|drop|删除数据库/表格|<br>线上学习mysql地址：<br>1.<a target="_blank" rel="noopener" href="http://sample.jimstone.com.cn/xsql/TestSQL/4.html">http://sample.jimstone.com.cn/xsql/TestSQL/4.html</a><br>2. <a target="_blank" rel="noopener" href="http://sqlfiddle.com/">http://sqlfiddle.com/</a><br>3.<a target="_blank" rel="noopener" href="https://sqlbolt.com/lesson/select_queries_introduction">https://sqlbolt.com/lesson/select_queries_introduction</a><br>4. <a target="_blank" rel="noopener" href="https://www.w3resource.com/sql-exercises/sql-retrieve-from-table.php">https://www.w3resource.com/sql-exercises/sql-retrieve-from-table.php</a><br>一、查询<br>1.若查询user表格的名字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select*from user where students like &#39;小%&#39;;</span><br><span class="line">&#x2F;&#x2F;查询前面一个字是’小‘的</span><br><span class="line">select*from user where students not like  &#39;小%&#39;；</span><br><span class="line">&#x2F;&#x2F;查询前面一个字不是小的</span><br><span class="line">select*from user where students  like  &#39;%小%&#39;；</span><br><span class="line">&#x2F;&#x2F;查询名字里有小的</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>2.查数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select*from user where score in (98,60,92);</span><br><span class="line">&#x2F;&#x2F;查询成绩为98或60或92的（这里不指范围）</span><br><span class="line">select avg(score)from user</span><br><span class="line">&#x2F;&#x2F;计算表格中score的平均数</span><br><span class="line">&#x2F;&#x2F;和记为sum</span><br><span class="line">select distinct(age)as &#39;年龄&#39; from user_ext;</span><br><span class="line">&#x2F;&#x2F;获取表 user_ext 中所有不同的字段 age 并设置字段别名为&#39;年龄&#39;</span><br><span class="line">select*from user_ext order  by weight desc</span><br><span class="line">  &#x2F;&#x2F;获取表 user_ext 中的所有数据并且按照字段 weight 进行倒序排序</span><br></pre></td></tr></table></figure>
+<p>3.插入列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into user (students,score,gender) values(&#39;小威威&#39;,100,&#39;女&#39;)</span><br></pre></td></tr></table></figure>
+<p>4.修改列表值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">update user set score&#x3D;30 where students&#x3D;&#39;小明&#39;</span><br><span class="line">&#x2F;&#x2F;:把 user 表 中字段 students 为&#39;小明&#39; 所在字段 score 更改为30分</span><br></pre></td></tr></table></figure>
+<p>5.删除列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete from user where user.students&#x3D;&#39;小明&#39;</span><br><span class="line">&#x2F;&#x2F;把 user 表 students 字段为&#39;小明&#39;的记录删除</span><br></pre></td></tr></table></figure>
+<p>6.创建一个列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create table test(id,students varchar (8),gender varchar (2),birthday varchar(8))</span><br><span class="line">&#x2F;&#x2F;创建一个名为&#39;test&#39;的表</span><br></pre></td></tr></table></figure>
+<p>7.删除表格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">drop table test</span><br><span class="line">&#x2F;&#x2F;删除test表格</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/27/MySQL/" data-id="ckkf4qdfr000024vc4knjaz91" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-PHP基础学习（四）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/27/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89/" class="article-date">
+  <time datetime="2021-01-27T07:47:11.588Z" itemprop="datePublished">2021-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PHP基础学习（四）<br>$x 变量在函数外声明，所以它是全局变量 ， $y 变量在函数内声明所以它是局部变量。</p>
+<p>当我们调用myTest()函数并输出两个变量值, 函数将会输出局部变量 $y 的值，但是不能输出 $x 的值，因为 $x 变量在函数外定义，无法在函数内使用，如果要在一个函数中访问一个全局变量，需要使用 global 关键字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$x&#x3D;5;</span><br><span class="line">$y&#x3D;10;</span><br><span class="line"> </span><br><span class="line">function myTest()</span><br><span class="line">&#123;</span><br><span class="line">    global $x,$y;&#x2F;&#x2F; 也可以写成$GLOBALS[&#39;y&#39;]&#x3D;$GLOBALS[&#39;x&#39;]+$GLOBALS[&#39;y&#39;];输出$GLOBALS[&#39;y&#39;]</span><br><span class="line">    $y&#x3D;$x+$y;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">myTest();</span><br><span class="line">echo $y; &#x2F;&#x2F; 输出 &#96;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>函数中局部变量若要参与运算，需要在变量前加上static，若不加，则无论怎么运算（多次参与并保留输出值时）都输出原来的赋予值。<br>函数的输出可以直接写（某函数的命名（））。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;&#123;$a[1]&#125;&quot;;&#x2F;&#x2F;输出数组</span><br><span class="line">$c&#x3D;array(&#39;hey&#39;,&#39;ccw&#39;);&#x2F;&#x2F;数组赋值  双引号也可以</span><br></pre></td></tr></table></figure>
+<p>松散比较：使用两个等号 == 比较，只比较值，不比较类型。<br>严格比较：用三个等号 === 比较，除了比较值，也比较类型。<br>使用常量时，不能在常量名前添加$ 符号。<code>define(&#39;LOG&#39;,&#39;OPEN&#39;);//定义常量，常量使用不能添加$</code>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F; 区分大小写的常量名</span><br><span class="line">define(&quot;GREETING&quot;, &quot;欢迎访问 Runoob.com&quot;);</span><br><span class="line">echo GREETING;    &#x2F;&#x2F; 输出 &quot;欢迎访问 Runoob.com&quot;</span><br><span class="line">echo &#39;&lt;br&gt;&#39;;</span><br><span class="line">echo greeting;   &#x2F;&#x2F; 输出 &quot;greeting&quot;</span><br><span class="line">?&gt;&#x2F;&#x2F;define最前面的一个是常量名 括号里最多有三个单词；</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F; 不区分大小写的常量名</span><br><span class="line">define(&quot;GREETING&quot;, &quot;欢迎访问 Runoob.com&quot;, true);</span><br><span class="line">echo greeting;  &#x2F;&#x2F; 输出 &quot;欢迎访问 Runoob.com&quot;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $txt1.$txt2;&#x2F;&#x2F;输出连接两个数组</span><br></pre></td></tr></table></figure>
+<p>count:计算数组长度</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/27/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89/" data-id="ckkf4qdg3000124vc8rwc1vii" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-PHP基础学习（三）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/27/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/" class="article-date">
+  <time datetime="2021-01-27T07:46:28.720Z" itemprop="datePublished">2021-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PHP基础学习（三）<br>|作用| 名称 |<br>|–|–|<br>| 声明类对象 |Class  |<br>|声明函数  |function  |<br>|常量定义|define|<br>|类的变量声明  | var |<br>|对字符串分割|explore(）函数|<br>|  |  |</p>
+<p>面向对象内容<br>类 − 定义了一件事物的抽象特点。类的定义包含了数据的形式以及对数据的操作。</p>
+<p>对象 − 是类的实例。</p>
+<p>成员变量 − 定义在类内部的变量。该变量的值对外是不可见的，但是可以通过成员函数访问，在类被实例化为对象后，该变量即可称为对象的属性。</p>
+<p>成员函数 − 定义在类的内部，可用于访问对象的数据。</p>
+<p>继承 − 继承性是子类自动共享父类数据结构和方法的机制，这是类之间的一种关系。在定义和实现一个类的时候，可以在一个已经存在的类的基础之上来进行，把这个已经存在的类所定义的内容作为自己的内容，并加入若干新的内容。</p>
+<p>父类 − 一个类被其他类继承，可将该类称为父类，或基类，或超类。</p>
+<p>子类 − 一个类继承其他类称为子类，也可称为派生类。</p>
+<p>多态 − 多态性是指相同的函数或方法可作用于多种类型的对象上并获得不同的结果。不同的对象，收到同一消息可以产生不同的结果，这种现象称为多态性。</p>
+<p>重载 − 简单说，就是函数或者方法有同样的名称，但是参数列表不相同的情形，这样的同名不同参数的函数或者方法之间，互相称之为重载函数或者方法。</p>
+<p>抽象性 − 抽象性是指将具有一致的数据结构（属性）和行为（操作）的对象抽象成类。一个类就是这样一种抽象，它反映了与应用有关的重要性质，而忽略其他一些无关内容。任何类的划分都是主观的，但必须与具体的应用有关。</p>
+<p>封装 − 封装是指将现实世界中存在的某个客体的属性与行为绑定在一起，并放置在一个逻辑单元内。</p>
+<p>构造函数 − 主要用来在创建对象时初始化对象， 即为对象成员变量赋初始值，总与new运算符一起使用在创建对象的语句中。</p>
+<p>析构函数 − 析构函数(destructor) 与构造函数相反，当对象结束其生命周期时（例如对象所在的函数已调用完毕），系统自动执行析构函数。析构函数往往用来做”清理善后” 的工作（例如在建立对象时用new开辟了一片内存空间，应在退出前在析构函数中用delete释放）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/27/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/" data-id="ckkf4qdg6000224vcdu7t1vtd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-PHP基础学习（二）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/13/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" class="article-date">
@@ -288,7 +407,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li></ul>
     </div>
   </div>
 
@@ -301,15 +420,23 @@
       <ul>
         
           <li>
+            <a href="/2021/01/27/MySQL/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/27/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/27/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/13/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/">(no title)</a>
           </li>
         
           <li>
             <a href="/2020/11/10/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/13/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -324,7 +451,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 woccal<br>
+      &copy; 2021 woccal<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
